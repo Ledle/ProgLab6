@@ -16,6 +16,9 @@ namespace ProgLab6
             get { return name; }
             set { name = value; }
         }
+        public List<Question> Quest {
+            get { return new List<Question>(quest); }
+        }
         public Test()
         {
             this.name = "";
@@ -40,9 +43,6 @@ namespace ProgLab6
                 return 0;
             }
             return result[n + 1];
-        }
-        public Question getquest(int n) {
-            return this.quest[n];
         }
         public void show()
         {
@@ -74,4 +74,4 @@ namespace ProgLab6
             }
         }
     }
-}
+}   

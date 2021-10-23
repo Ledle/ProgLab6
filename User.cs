@@ -58,7 +58,7 @@ namespace ProgLab6
         {
             if (this.grp != null)
             {
-                //this.grp.deluser(this.login);
+                this.grp.deluser(this.login);
             }
             this.grp = null;
         }
@@ -67,7 +67,7 @@ namespace ProgLab6
             Console.WriteLine("User: " + this.name);
             if (this.grp != null)
             {
-                //Console.WriteLine(" Group: " + this.grp.getname());
+                Console.WriteLine(" Group: " + this.grp.Name);
             }
             Console.WriteLine(" Login: " + this.login + " Password: " + this.password);
         }
