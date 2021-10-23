@@ -7,8 +7,8 @@ namespace ProgLab6
     {
         static void Main(string[] args)
         {
-            Question q = new Question("Hello", "boab", 13);
-            q.show();
+            Test t = new Test();
+            t.input();
         }
     }
 }
