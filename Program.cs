@@ -7,10 +7,8 @@ namespace ProgLab6
     {
         static void Main(string[] args)
         {
-            List<String> ss = new List<String>();
-            ss.Add("Hello");
-            ss.Add("World");
-            Console.WriteLine(ss[0] + ss[1] + ss.Count);
+            Question q = new Question("Hello", "boab", 13);
+            q.show();
         }
     }
 }
