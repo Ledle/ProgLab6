@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgLab6
 {
-    class Question
+    struct Question
     {
         private String text, answer;
         private int score;
@@ -24,11 +24,6 @@ namespace ProgLab6
         {
             get { return score; }
             set { score = Math.Abs(value); }//благодаря свойству нельзя присвоить отрицательное количество баллов за вопрос
-        }
-        public Question() {
-            this.text = "";
-            this.answer = "";
-            this.score = 0;
         }
         public Question(String text, String answer, int value)
         {
