@@ -23,7 +23,7 @@ namespace ProgLab6
         public String Name
         {
             get { return name; }
-            set { name = value; }
+            set { name = value.Substring(0,1).ToUpper() + value.Substring(1); }//Делает первую букву имени заглавной
         }
         public Group Group {
             get { return grp; }
@@ -46,10 +46,10 @@ namespace ProgLab6
         {
             if (grp != gr)
             {
-                //gr.adduser(this);
+                gr.adduser(this);
                 if (this.grp != null)
                 {
-                    //this.grp.deluser(this.login);
+                    this.grp.deluser(this.login);
                 }
                 this.grp = gr;
             }

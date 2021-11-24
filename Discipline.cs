@@ -10,7 +10,7 @@ namespace ProgLab6
     {
         private String name;
         private List<Test> tests;
-        private List<Group> groups;
+        private List<Group> groups;//массив объектов Group
         public String Name {
             get { return name; }
             set { name = value; }
@@ -39,7 +39,7 @@ namespace ProgLab6
             if (this.groups.IndexOf(gr) == -1)
             {
                 this.groups.Add(gr);
-                gr.adddisc(this);
+                gr.adddisc(this);//добавление этой дисциплины в группу с помощью this
             }
             return groups.Count() - 1;
         }

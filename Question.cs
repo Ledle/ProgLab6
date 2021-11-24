@@ -23,7 +23,7 @@ namespace ProgLab6
         public int Value
         {
             get { return score; }
-            set { score = Math.Abs(value); }
+            set { score = Math.Abs(value); }//благодаря свойству нельзя присвоить отрицательное количество баллов за вопрос
         }
         public Question() {
             this.text = "";
@@ -48,6 +48,15 @@ namespace ProgLab6
             this.answer = Console.ReadLine();
             Console.Write("Enter scores: ");
             this.score = Convert.ToInt32(Console.ReadLine());
+        }
+        public static Question operator +(Question q,int n)
+        {
+            q.Value = n;
+            return q;
+        }
+        public static Question operator ++(Question q)
+        {
+            return new Question(q.text,q.answer,q.Value+1);
         }
     }
 }
