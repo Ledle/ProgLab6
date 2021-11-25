@@ -8,12 +8,17 @@ namespace ProgLab6
 {
     class Group
     {
+        private static List<Group> groups = new List<Group>();//список всех групп
         private List<User> students;
         private List<Discipline> disciplines;
         private String name;
         public String Name {
             get { return name; }
             set { name = value; }
+        }
+        public static List<Group> list()
+        {
+            return new List<Group>(groups);
         }
         public List<User> Students 
         {
@@ -28,12 +33,14 @@ namespace ProgLab6
             this.name = "";
             this.students = new List<User>();
             this.disciplines = new List<Discipline>();
+            groups.Add(this);
         }
         public Group(String name)
         {
             this.name = name;
             this.students = new List<User>();
             this.disciplines = new List<Discipline>();
+            groups.Add(this);
         }
         public int adddisc(Discipline disc)
         {

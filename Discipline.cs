@@ -8,12 +8,16 @@ namespace ProgLab6
 {
     class Discipline
     {
+        private static List<Discipline> disciplines = new List<Discipline>();//список всех дисциплин
         private String name;
         private List<Test> tests;
         private List<Group> groups;//массив объектов Group
         public String Name {
             get { return name; }
             set { name = value; }
+        }
+        public static List<Discipline> list() {//статический метод для полученияя копии списка
+            return disciplines.GetRange(0,disciplines.Count);
         }
         public List<Test> Tests {
             get { return new List<Test>(tests); }
@@ -27,12 +31,14 @@ namespace ProgLab6
             this.name = "";
             this.tests = new List<Test>();
             this.groups = new List<Group>();
+            disciplines.Add(this);//добавление новой дисциплины в общий список
         }
         public Discipline(String name)
         {
             this.name = name;
             this.tests = new List<Test>();
             this.groups = new List<Group>();
+            disciplines.Add(this);//добавление новой дисциплины в общий список
         }
         public int addgroup(Group gr)
         {

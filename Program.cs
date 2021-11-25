@@ -4,17 +4,26 @@ using System.Collections.Generic;
 namespace ProgLab6
 { 
     class Program {
-        static void change(int a, out int b, ref int c) 
-        {
-            a = 3;
-            b = 4;
-            c = 5;
-        }
         static void Main(string[] args)
         {
-            int a = 0,c = 1;
-            change(a, out int b, ref c);//b объявляется в 
-            Console.WriteLine($"a:{a} b:{b} c:{c}");
-		}
+            Discipline d1 = new Discipline("Math");
+            Discipline d2 = new Discipline("Physic");
+            Discipline d3 = new Discipline("Programming");
+            Discipline d4 = new Discipline("Economics");
+            Group g1 = new Group("PI01");
+            Group g2 = new Group("PI02");
+            Group g3 = new Group("PI03");
+            Group g4 = new Group("PI04");
+            Console.WriteLine("Groups:");
+            foreach (Group g in Group.list())
+            {
+                g.show();
+            }
+            Console.WriteLine("Disciplines: ");
+            foreach (Discipline d in Discipline.list())
+            {
+                d.show();
+            }
+        }
     }
 }
