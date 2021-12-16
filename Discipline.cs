@@ -40,6 +40,11 @@ namespace ProgLab6
             this.groups = new List<Group>();
             disciplines.Add(this);//добавление новой дисциплины в общий список
         }
+        public Discipline(String name, Test[] tests, Group[] groups) {
+            this.name = name;
+            this.tests = new List<Test>(tests);
+            this.groups = new List<Group>(groups);
+        }
         public int addgroup(Group gr)
         {
             if (this.groups.IndexOf(gr) == -1)

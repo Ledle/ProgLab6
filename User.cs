@@ -35,6 +35,12 @@ namespace ProgLab6
             this.login = 0;
             this.password = 0;
         }
+        public User(String name) {
+            this.name = name;
+            this.grp = null;
+            this.login = 0;
+            this.password = 0;
+        }
         public User(int login, int password, String name)
         {
             this.login = login;

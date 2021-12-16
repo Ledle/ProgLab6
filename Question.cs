@@ -30,6 +30,11 @@ namespace ProgLab6
             this.answer = "";
             this.score = 0;
         }
+        public Question(String text) {
+            this.text = text;
+            this.answer = "";
+            this.score = 0;
+        }
         public Question(String text, String answer, int value)
         {
             this.text = text;

@@ -25,6 +25,11 @@ namespace ProgLab6
             this.quest = new List<Question>();
             this.result = new List<Int32>();
         }
+        public Test(String name) {
+            this.name = name;
+            this.quest = new List<Question>();
+            this.result = new List<Int32>();
+        }
         public Test(Question[] questions, String name)
         {
             this.name = name;

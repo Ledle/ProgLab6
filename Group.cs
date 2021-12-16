@@ -33,14 +33,19 @@ namespace ProgLab6
             this.name = "";
             this.students = new List<User>();
             this.disciplines = new List<Discipline>();
-            groups.Add(this);
+            groups.Add(this);//добавление новой группы в общий список
         }
         public Group(String name)
         {
             this.name = name;
             this.students = new List<User>();
             this.disciplines = new List<Discipline>();
-            groups.Add(this);
+            groups.Add(this); //добавление новой группы в общий список
+        }
+        public Group(String name, Discipline[] disc, User[] students) {
+            this.name = name;
+            this.disciplines = new List<Discipline>(disc);
+            this.students = new List<User>(students);
         }
         public int adddisc(Discipline disc)
         {
