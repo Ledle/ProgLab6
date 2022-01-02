@@ -56,6 +56,10 @@ namespace ProgLab6
         }
         public int addtest(Test tst)
         {
+            if (tst == null)
+            {
+                throw new ArgumentNullException();
+            }
             if (this.tests.IndexOf(tst) == -1)
             {
                 this.tests.Add(tst);

@@ -49,6 +49,10 @@ namespace ProgLab6
         }
         public int adddisc(Discipline disc)
         {
+            if(disc == null)
+            {
+                throw new ArgumentNullException();
+            }
             if (this.disciplines.IndexOf(disc) == -1)
             {
                 disciplines.Add(disc);
@@ -58,6 +62,10 @@ namespace ProgLab6
         }
         public int adduser(User student)
         {
+            if (student == null)
+            {
+                throw new ArgumentNullException();
+            }
             if (students.IndexOf(student) == -1)
             {
                 students.Add(student);
