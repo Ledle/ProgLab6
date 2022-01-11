@@ -78,5 +78,16 @@ namespace ProgLab6
                 quest[i].input();
             }
         }
+        public string toString()
+        {
+            string st;
+            st=("Test " + name + ":");
+            for (int i = 0; i < quest.Count(); i++)
+            {
+                st+=("Question " + i + ")" + quest[i].Text);
+                st+=("Answer: " + quest[i].Answer);
+            }
+            return st;
+        }
     }
 }   

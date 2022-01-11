@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgLab6
 {
-    class Discipline
+    class Discipline : Interface, ICloneable
     {
         private static List<Discipline> disciplines = new List<Discipline>();//список всех дисциплин
         private String name;
@@ -110,6 +110,44 @@ namespace ProgLab6
         {
             Console.WriteLine("Enter name of discipline: ");
             this.name = Console.ReadLine();
+        }
+        public string toString()
+        {
+            string st;
+            st = "Discipline " + this.name + ":";
+            if (this.groups.Count() > 0)
+            {
+                st+=" Groups:";
+                for (int i = 0; i < this.groups.Count(); i++)
+                {
+                    st+="  " + i + ") " + this.groups[i].Name;
+                }
+            }
+            if (this.tests.Count() >= 0)
+            {
+                st+=" Tests: " + this.tests.Count();
+            }
+            return st;
+        }
+        public object Clone()//глубокое клонирование
+        {
+            List<Test> tsts = new List<Test>();
+            List<Question> qsts = new List<Question>();
+            foreach (Test t in tests)
+            {
+                foreach (Question q in t.Quest)
+                {
+                    qsts.Add(new Question(q.Text,q.Answer,q.Value));
+                }
+                tsts.Add(new Test(qsts.ToArray(),t.Name));
+                qsts.Clear();
+            }
+            Group[] grps = new Group[groups.Count];
+            for (int i = 0; i < groups.Count; i++)
+            {
+                grps[i] = (Group)groups[i].Clone();
+            }
+            return new Discipline(name, tsts.ToArray(), grps);
         }
     }
 }

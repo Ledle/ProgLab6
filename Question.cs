@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgLab6
 {
-    class Question
+    class Question : Interface
     {
         private String text, answer;
         private int score;
@@ -62,6 +62,14 @@ namespace ProgLab6
         public static Question operator ++(Question q)
         {
             return new Question(q.text,q.answer,q.Value+1);
+        }
+        public string toString()
+        {
+            string st;
+            st = "Question: " + this.text;
+            st += "Answer: " + this.answer;
+            st += "(" + this.score + ")";
+            return st;
         }
     }
 }

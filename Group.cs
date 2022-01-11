@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgLab6
 {
-    class Group
+    class Group:Interface,ICloneable
     {
         private static List<Group> groups = new List<Group>();//список всех групп
         private List<User> students;
@@ -60,7 +60,7 @@ namespace ProgLab6
             }
             return disciplines.Count() - 1;
         }
-        public int adduser(User student)
+        public int adduser(Student student)
         {
             if (student == null)
             {
@@ -114,7 +114,7 @@ namespace ProgLab6
             this.students = new List<User>(n);
             for (int i = 0; i < n; i++)
             {
-                this.students.Add(new User());
+                this.students.Add(new Student());
                 this.students[i].input();
             }
         }
@@ -124,12 +124,37 @@ namespace ProgLab6
             {
                 if (students[i].Login == login)
                 {
-                    User s = students[i];
+                    Student s = (Student)students[i];
                     students.Remove(students[i]);
                     s.delgroup();
                     break;
                 }
             }
+        }
+        public string toString()
+        {
+            string st;
+            st = "Group " + this.name;
+            if (this.students.Count() > 0)
+            {
+                for (int i = 0; i < this.students.Count(); i++)
+                {
+                    st+=" " + i + ") Name: " + this.students[i].Name + " Login: " + this.students[i].Login;
+                }
+            }
+            if (this.disciplines.Count() > 0)
+            {
+                st+=" Disciplines:";
+                for (int i = 0; i < this.disciplines.Count(); i++)
+                {
+                    st+="  " + i + ") Discipline: " + this.disciplines[i].Name;
+                }
+            }
+            return st;
+        }
+        public object Clone()//поверхностное клонирование
+        {
+            return MemberwiseClone();
         }
     }
 }
